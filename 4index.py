@@ -1,30 +1,3 @@
-# app.py
-
-# import streamlit as st
-# import numpy as np
-# import joblib
-
-# # Load saved objects
-# model = joblib.load("model.pkl")
-# scaler = joblib.load("scaler.pkl")
-
-# st.title("🎓 Student Marks Predictor")
-
-# st.write("Enter student details below:")
-
-# attendance = st.slider("Attendance (%)", 0.0, 100.0, 75.0)
-# previous_grades = st.slider("Previous Grades", 0.0, 100.0, 60.0)
-
-# if st.button("Predict Final Marks"):
-#     try:
-#         input_data = np.array([[study_hours, attendance, previous_grades]])
-#         input_scaled = scaler.transform(input_data)
-#         prediction = model.predict(input_scaled)
-
-#         st.success(f"Predicted Final Marks: {prediction[0]:.2f}")
-
-#     except Exception as e:
-#         st.error(f"Error: {e}")
 import streamlit as st
 import numpy as np
 import joblib
@@ -46,5 +19,12 @@ if st.button("Predict Final Marks"):
     prediction = model.predict(input_scaled)
 
     st.success(f"Predicted Final Marks: {prediction[0]:.2f}")
+    st.write(study_hours)
+    st.write(attendance)
+    st.write(previous_grades)
+    st.write(input_data)
+    st.write(input_scaled)
+    
+
 
 
