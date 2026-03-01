@@ -14,9 +14,9 @@ from sklearn.impute import SimpleImputer
 # Load dataset
 data = pd.read_csv("student_data.csv")
 
-# -------------------------
-# Step 1: Data Preprocessing
-# -------------------------
+
+# 1: Data Preprocessing
+
 
 # Handle missing values
 imputer = SimpleImputer(strategy='mean')
@@ -29,9 +29,9 @@ y = data_imputed["Final_Marks"]
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
-# -------------------------
+
 # Step 2: Model Training
-# -------------------------
+
 
 X_train, X_test, y_train, y_test = train_test_split(
     X_scaled, y, test_size=0.2, random_state=42
@@ -46,9 +46,8 @@ y_pred = model.predict(X_test)
 print("R2 Score:", r2_score(y_test, y_pred))
 print("MSE:", mean_squared_error(y_test, y_pred))
 
-# -------------------------
+
 # Visualization
-# -------------------------
 
 plt.figure()
 sns.scatterplot(x=data_imputed["Study_Hours"], y=data_imputed["Final_Marks"])
@@ -62,3 +61,4 @@ import joblib
 joblib.dump(model, "model.pkl")
 joblib.dump(scaler, "scaler.pkl")
 joblib.dump(imputer, "imputer.pkl")
+
